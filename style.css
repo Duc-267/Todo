@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgb(0 0 0 / 50%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(0 0 0 / 60%);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, rgb(235, 85, 110), rgb(147 51 234 / 75%));
+}
+
+.todo-container {
+    height: 500px;
+    position: relative;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 10px;
+    width: clamp(18rem, 50vw, 30rem);
+
+}
+
+.title {
+    padding-top: 10px;
+    text-align: center;
+    color: black;
+    font-size: 35px;
+}
+
+.todo-container__new-todo,
+.todo-container__list {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.todo-container__new-todo {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.new-todo__content,.edit__content  {
+    flex: 1;
+    height: 36px;
+    font-size: 16px;
+    padding-left: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(76, 74, 74);
+    border-radius: 20px;
+    box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+}
+
+.new-todo__content::placeholder {
+    font-size: 16px;
+    color: rgb(187, 185, 182);
+}
+
+.new-todo__button {
+    height: 44px;
+    width: 44px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    place-items: center;
+    background-color: rgba(153, 86, 215, 0.75);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(76, 74, 74);
+    border-radius: 22px;
+    margin-left: 5px;
+}
+
+.new-todo__button:hover {
+    background: rgb(128 36 210);
+
+}
+
+.todo-container__list {
+    height: 375px;
+    width: 100%;
+    overflow-y: scroll;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.todo__item {
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(0 0 0 / 10%);
+}
+
+.todo__item:hover,
+.todo__item.active {
+    background: rgb(0 0 0 / 4%);
+}
+
+.item__header {
+    display: flex;
+    align-items: center;
+}
+
+.item__id {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.todo__options {
+    position: relative;
+}
+
+.options__toggleBtn {
+    border: 0;
+    cursor: pointer;
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+
+    background: transparent;
+}
+
+.options__toggleBtn:hover,
+.options__toggleBtn.active {
+    background: rgb(0 0 0 / 10%);
+}
+
+.options__dropdown :is(.edit, .delete):hover {
+    background: rgb(0 0 0 / 6%);
+}
+
+.options__dropdown {
+    top: 75%;
+    height: 0;
+    opacity: 0;
+    right: 50%;
+    width: 9rem;
+    overflow: hidden;
+    position: absolute;
+    background: #fff;
+    transition: all 0.4s;
+    pointer-events: none;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+}
+
+.todo-container__list .todo__item.active .todo__options .options__toggleBtn {
+    background: rgb(0 0 0 / 10%);
+  }
+
+.options__dropdown :is(.edit, .delete, .showMore) {
+    transition: all 0.2s;
+    padding: 0.4rem 1rem;
+    border-bottom: 1px solid rgb(0 0 0 / 8%);
+}
+
+.todo-container__list .todo__item.active .todo__options .options__dropdown {
+    opacity: 1;
+    height: 4.6rem;
+    overflow: visible;
+    pointer-events: all;
+  }
+
+.edit:hover {
+    color: #fff;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    background: rgb(37, 99, 235) !important;
+}
+
+.delete:hover {
+    color: #fff;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    background: rgb(220, 38, 38) !important;
+}
+
+.edit__save {
+    font-weight: 700;
+    padding-left: 5px;
+    font-size: 16px;
+    border: 0;
+    height: 100%;
+    width: 44px;
+    color: purple;
+    background-color: transparent;
+    cursor: pointer;
+}

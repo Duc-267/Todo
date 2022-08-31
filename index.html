@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="todo-container">
+        <div class="todo-container__header">
+            <h2 class="title">
+                Todo List
+            </h2>
+        </div>
+        <div class="todo-container__new-todo">
+            <input type="text" class="new-todo__content" placeholder="Add your new todo">
+            <button class="new-todo__button"><i class="fa fa-plus" onclick="addTodo()"></i></button>
+        </div>
+        <div class="todo-container__list"></div>
+    </div>
+    <!-- <div class="edit-container">
+        <div class="edit-wrapper">
+            <button class="edit__close"><i class="fa-solid fa-times"></i></button>
+            <div class="edit__header">
+                <h3 class="edit__title"></h3>
+            </div>
+            <textarea id="edit__content" placeholder="Enter Todo" cols="30" rows="6"></textarea>
+            <button class="edit__submit">Submit</button>
+        </div>
+    </div> -->
+        
+    <script src="script.js"></script>
+</body>
+
+</html>
