@@ -14,7 +14,37 @@
 
 <body>
     <div class="container">
-        <div class="registration-container">
+        <div class="login-container">
+            <div class="login">
+                <h2 class="title">
+                    Log In
+                </h2>
+            </div>
+            <div class="login__body">
+                <form name="login__form" onsubmit="return login()">
+                    <div class="input-field">
+                        <input name="email" id="email" type="text" placeholder="Email"><br>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input class="password" name="password" id="password" type="password"
+                            placeholder="Password"><br>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash show-hide"></i>
+                    </div><input class="btn form__button" type="submit" value="Log In">
+                </form>
+
+                <div class="login-signup">
+                    <p class="reminder">Not a member?
+                        <a href="#" class="text login-link">Register Now</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+                <!-- Sign-up -->
+                <!-- <div class="registration-container">
             <div class="registration__header">
                 <h2 class="title">
                     Registration
@@ -52,11 +82,11 @@
                         <a href="#" class="text login-link">Login Now</a>
                     </p>
                 </div>
-            </div>
+            </div> -->
 
 
-            <!-- Todo -->
-            <!-- <div class="todo-container">
+                <!-- Todo -->
+                <!-- <div class="todo-container">
             <div class="todo-container__header">
                 <h2 class="title">
                     Todo List
@@ -68,9 +98,9 @@
             </div>
             <div class="todo-container__list"></div>
         </div> -->
-        </div>
+            </div>
 
-        <script src="script.js"></script>
+            <script src="script.js"></script>
 </body>
 
 </html>

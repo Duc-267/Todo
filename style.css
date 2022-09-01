@@ -37,7 +37,7 @@ body {
     background: linear-gradient(to bottom right, rgb(235, 85, 110), rgb(147 51 234 / 75%));
 }
 
-.todo-container,.registration-container {
+.todo-container,.registration-container,.login-container {
     position: relative;
     flex-direction: column;
     background: #fff;
@@ -244,7 +244,7 @@ a:hover{
     color: red;
 }
 
-.registration__body {
+.registration__body, .login__body {
     padding: 0 20px 20px 20px;
 }
 
