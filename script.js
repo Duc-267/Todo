@@ -1,5 +1,8 @@
 // let todos = JSON.parse(localStorage.getItem("todo-data"))
-const todoList = document.querySelector(".todo-container__list")
+const todoList = document.querySelector(".todo-container__list"),
+showHideIcon = document.querySelectorAll(".show-hide"),
+passwordFields = document.querySelectorAll(".password")
+
 
 let todos = [{ id: 1, content: "Learn JavaScript" }]
 let idCounter = 2
@@ -106,7 +109,7 @@ const editTodo = (todo) => {
     todo = JSON.parse(decodeURIComponent(todo))
     let items = document.querySelectorAll('.todo__item')
     items.forEach(item => {
-        if(item.dataset.id == todo.id) {
+        if (item.dataset.id == todo.id) {
             console.log(todo.content)
             item.innerHTML = `
             <input type=text value="${todo.content}" class="edit__content">
@@ -117,7 +120,7 @@ const editTodo = (todo) => {
 
 const saveTodo = (id) => {
     const content = document.getElementsByClassName("edit__content")[0].value
-    if(content != ''){
+    if (content != '') {
         const index = todos.findIndex(todo => todo.id == id)
         todos[index].content = content
         console.log(todos)
@@ -127,25 +130,98 @@ const saveTodo = (id) => {
 
 }
 
-// let todoEditID,
-//     edit = document.querySelectorAll('.edit')
-// isEditTodo = false
 
-// edit.forEach(btn => {
-//     btn.addEventListener('click', (e) => {
-//         let id = e.target.dataset.editid
-//         let editdata = e.target.dataset.editdata
-//         isEditTodo = true
-//         todoEditID = id
-//         newTodoContainer.classList.add('show')
-//         newTodoContainer.querySelector('.title').innerText = 'Edit Todo'
-//         todoData.value = editdata
-//     })
-// })
+// renderTodo()
+// optionsToggle()
 
-// let toggleBtns = document.getElementsByClassName("options__toggleBtn")
-// console.log(toggleBtns)
+// Sign-up validation
+function validateForm() {
+    let email = document.forms["signup__form"]["email"].value
+    let fullName = document.forms["signup__form"]["fname"].value
+    let password = document.forms["signup__form"]["password"].value
+    let confirmPassword = document.forms["signup__form"]["confirm-password"].value
 
+    let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let emailValidationFlag = true
+    let fullNameValidationFlag = true
+    let passwordValidationFlag = true
+    let confirmPasswordValidationFlag = true
+    if (!email.match(mailFormat)) {
+        document.getElementById("email-validation").innerHTML = "Incorrect email form"
+        emailValidationFlag = false
+    } else {
+        document.getElementById("email-validation").innerHTML = ""
+        emailValidationFlag = true
+    }
+    if (fullName.split(" ").length < 2) {
+        document.getElementById("fname-validation").innerHTML = "Full name must contain at least 2 words"
+        fullNameValidationFlag = false
+    } else {
+        document.getElementById("fname-validation").innerHTML = ""
+        fullNameValidationFlag = true
+    }
+    if (password.length < 8 || !containsSpecialChars(password) || !checkUppercasePassword(password)) {
+        document.getElementById("password-validation").innerHTML = "Password must contain at least one uppercase character, one special character and has eight characters or longer."
+        passwordValidationFlag = false
+    } else {
+        document.getElementById("password-validation").innerHTML = ""
+        passwordValidationFlag = true
+    }
+    if (confirmPassword !== password) {
+        document.getElementById("cpassword-validation").innerHTML = "The password confirmation does not match."
+        confirmPasswordValidationFlag = false
+    } else {
+        document.getElementById("cpassword-validation").innerHTML = ""
+        confirmPasswordValidationFlag = true
 
-renderTodo()
-optionsToggle()
+    }
+    return emailValidationFlag && fullNameValidationFlag && passwordValidationFlag && confirmPasswordValidationFlag
+
+    function containsSpecialChars(str) {
+        const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+        return specialChars.test(str);
+    }
+}
+function checkUppercasePassword(password) {
+    for (var i = 0; i < password.length; i++) {
+        if (password.charAt(i) == password.charAt(i).toUpperCase() && password.charAt(i).match(/[a-z]/i)) {
+            return true;
+        }
+    }
+    return false;
+};
+
+showHideIcon.forEach(eyeIcon =>{
+    eyeIcon.addEventListener("click", ()=>{
+        passwordFields.forEach(pwField =>{
+            if(pwField.type ==="password"){
+                pwField.type = "text";
+
+                showHideIcon.forEach(icon =>{
+                    icon.classList.replace("uil-eye-slash", "uil-eye");
+                })
+            }else{
+                pwField.type = "password";
+
+                showHideIcon.forEach(icon =>{
+                    icon.classList.replace("uil-eye", "uil-eye-slash");
+                })
+            }
+        }) 
+    })
+})
+// function random_code_generate(max, min) {
+//     const codeChars =
+//         "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^*_";
+//     const CharMath = Math.floor(Math.random() * (max - min + 1)) + min;
+//     const randCode = Array(CharMath)
+//         .fill(codeChars)
+//         .map(function (x) {
+//             return x[Math.floor(Math.random() * x.length)];
+//         })
+
+//         .join("");
+//     return randCode;
+// }
+
+// console.log(random_code_generate(4, 7))
