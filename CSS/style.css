@@ -294,3 +294,7 @@ a:hover {
 .reminder {
   text-align: center;
 }
+
+#login-validation {
+  padding-top: 10px;
+}

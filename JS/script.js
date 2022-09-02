@@ -1,9 +1,7 @@
-// let todos = JSON.parse(localStorage.getItem("todo-data"))
 const todoList = document.querySelector(".todo-container__list"),
   showHideIcon = document.querySelectorAll(".show-hide"),
   passwordFields = document.querySelectorAll(".password");
 
-function User() {}
 let todos = [{ id: 1, content: "Learn JavaScript" }];
 let idCounter = 2;
 
@@ -214,7 +212,10 @@ function storeNewUser(account) {
     password: account.password,
     fullName: account.fullName,
   };
-  localStorage.setItem("user", JSON.stringify(newUser));
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
 }
 
 function containsSpecialChars(str) {
@@ -268,4 +269,14 @@ showHideIcon.forEach((eyeIcon) => {
 
 // console.log(random_code_generate(4, 7))
 
-function login() {}
+function login() {
+  const email = document.forms["login__form"]["email"].value;
+  const password = document.forms["login__form"]["password"].value;
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find((user) => user.email == email);
+  if (user && user.password == password) {
+    return true;
+  }
+  document.getElementById("login-validation").innerHTML = "Incorrect email or password"
+  return false;
+}
