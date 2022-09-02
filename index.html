@@ -1,106 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <div class="login-container">
-            <div class="login">
-                <h2 class="title">
-                    Log In
-                </h2>
-            </div>
-            <div class="login__body">
-                <form name="login__form" onsubmit="return login()">
-                    <div class="input-field">
-                        <input name="email" id="email" type="text" placeholder="Email"><br>
-                        <i class="uil uil-user"></i>
-                    </div>
-                    <div class="input-field">
-                        <input class="password" name="password" id="password" type="password"
-                            placeholder="Password"><br>
-                        <i class="uil uil-lock icon"></i>
-                        <i class="uil uil-eye-slash show-hide"></i>
-                    </div><input class="btn form__button" type="submit" value="Log In">
-                </form>
-
-                <div class="login-signup">
-                    <p class="reminder">Not a member?
-                        <a href="#" class="text login-link">Register Now</a>
-                    </p>
-                </div>
-            </div>
+      <div class="login-container">
+        <div class="login">
+          <h2 class="title">Log In</h2>
         </div>
-
-
-                <!-- Sign-up -->
-                <!-- <div class="registration-container">
-            <div class="registration__header">
-                <h2 class="title">
-                    Registration
-                </h2>
+        <div class="login__body">
+          <form
+            name="login__form"
+            onsubmit="return login()"
+            action="HTML/main.html"
+          >
+            <div class="input-field">
+              <input
+                name="email"
+                id="email"
+                type="text"
+                placeholder="Email"
+              /><br />
+              <i class="uil uil-envelope icon"></i>
             </div>
-            <div class="registration__body">
-                <form name="signup__form" onsubmit="return validateForm()">
-                    <div class="input-field">
-                        <input name="email" id="email" type="text" placeholder="Email"><br>
-                        <i class="uil uil-user"></i>
-                    </div>
-                    <p class="error" id="email-validation"></p>
-                    <div class="input-field">
-                        <input name="fname" id="fname" type="text" placeholder="Fullname"><br>
-                        <i class="uil uil-envelope icon"></i>
-                    </div>
-                    <p class="error" id="fname-validation"></p>
-                    <div class="input-field">
-                        <input class="password" name="password" id="password" type="password" placeholder="Password"><br>
-                        <i class="uil uil-lock icon"></i>
-                        <i class="uil uil-eye-slash show-hide"></i>
-                    </div>
-                    <p class="error" id="password-validation"></p>
-                    <div class="input-field">
-                        <input class="password" name="confirm-password" id="confirm-password" type="password"
-                            placeholder="Confirm password"><br>
-                        <i class="uil uil-lock icon"></i>
-                    </div>
-                    <p class="error" id="cpassword-validation"></p>
-                    <input class="btn form__button"type="submit" value="Sign Up">
-                </form>
-
-                <div class="login-signup">
-                    <p class="reminder">Already a member?
-                        <a href="#" class="text login-link">Login Now</a>
-                    </p>
-                </div>
-            </div> -->
-
-
-                <!-- Todo -->
-                <!-- <div class="todo-container">
-            <div class="todo-container__header">
-                <h2 class="title">
-                    Todo List
-                </h2>
+            <div class="input-field">
+              <input
+                class="password"
+                name="password"
+                id="password"
+                type="password"
+                placeholder="Password"
+              /><br />
+              <i class="uil uil-lock icon"></i>
+              <i class="uil uil-eye-slash show-hide"></i>
             </div>
-            <div class="todo-container__new-todo">
-                <input type="text" class="new-todo__content" placeholder="Add your new todo">
-                <button class="btn new-todo__button"><i class="fa fa-plus" onclick="addTodo()"></i></button>
-            </div>
-            <div class="todo-container__list"></div>
-        </div> -->
-            </div>
+            <input class="btn form__button" type="submit" value="Log In" />
+          </form>
 
-            <script src="script.js"></script>
-</body>
+          <div class="login-signup">
+            <p class="reminder">
+              Not a member?
+              <a href="HTML/registration.html" class="text login-link"
+                >Register Now</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <script src="JS/script.js"></script>
+  </body>
 </html>
