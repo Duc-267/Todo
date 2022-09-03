@@ -1,6 +1,6 @@
 const todoList = document.querySelector(".todo-container__list");
 let todos = JSON.parse(localStorage.getItem(KEY_TODO)) || [];
-let idCounter = Math.floor(Math.random() * 100000);;
+let idCounter = Math.floor(Math.random() * 100000);
 const currentUser = JSON.parse(localStorage.getItem(KEY_CURRENT_USER));
 document.getElementById("name").innerHTML = currentUser.fullName;
 
@@ -94,7 +94,7 @@ const addTodo = () => {
     todos.push({ id: idCounter++, content: newTodoContent });
     document.getElementsByClassName("new-todo__content")[0].value = "";
     localStorage.setItem(KEY_TODO, JSON.stringify(todos));
-  location.reload();
+    location.reload();
   }
   renderTodo();
   optionsToggle();
@@ -130,11 +130,24 @@ const saveTodo = (id) => {
     todos[index].content = content;
     console.log(todos);
     localStorage.setItem(KEY_TODO, JSON.stringify(todos));
-  location.reload();
+    location.reload();
     renderTodo();
     optionsToggle();
   }
 };
+const autoRedirect = () => {
+  const key = localStorage.getItem(KEY_LOGGING);
+  console.log("🚀 ~ file: todo.js ~ line 140 ~ autoRedirect ~ key", key)
+  const isLogging = key === "false";
+  console.log(
+    "🚀 ~ file: login.js ~ line 21 ~ autoRedirect ~ isLogging",
+    isLogging
+  );
+  if (isLogging) {
+    location.pathname = "Todo/index.html";
+  }
+};
 
+autoRedirect();
 renderTodo();
 optionsToggle();

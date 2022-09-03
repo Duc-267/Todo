@@ -7,12 +7,12 @@ function login() {
   const user = users.find((user) => user.email == email);
   if (user && user.password == password) {
     if (checkBox.checked == true) {
-      localStorage.setItem(KEY_LOGGING, "true");
       localStorage.setItem(
         KEY_SAVED_USER,
         JSON.stringify({ email: email, password: password })
       );
     }
+    localStorage.setItem(KEY_LOGGING, "true");
     localStorage.setItem(
       KEY_CURRENT_USER,
       JSON.stringify({
