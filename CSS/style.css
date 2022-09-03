@@ -51,6 +51,8 @@ body {
 }
 .todo-container {
   height: 500px;
+  flex-direction: r;
+
 }
 
 .title {
@@ -58,6 +60,11 @@ body {
   text-align: center;
   color: black;
   font-size: 35px;
+}
+
+.todo-container .title {
+  padding-top: 0px;
+
 }
 
 .todo-container__new-todo,
@@ -102,6 +109,15 @@ body {
   border-color: rgb(76, 74, 74);
 }
 
+.todo__nav {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  font-size: 20px;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
 .form__button {
   width: 100%;
   margin: 20px 0 20px 0;
@@ -143,6 +159,7 @@ body {
   background: rgb(0 0 0 / 4%);
 }
 
+
 .item__header {
   display: flex;
   align-items: center;
@@ -155,6 +172,7 @@ body {
 
 .todo__options {
   position: relative;
+  
 }
 
 .options__toggleBtn {
@@ -221,7 +239,7 @@ body {
   background: rgb(220, 38, 38) !important;
 }
 
-.edit__save {
+.btn2 {
   font-weight: 700;
   padding-left: 5px;
   font-size: 16px;
@@ -233,6 +251,11 @@ body {
   cursor: pointer;
 }
 
+.logout__btn {
+  width: 90px;
+  font-size: 20px;
+
+}
 /* Sign up */
 a {
   color: #4070f4;

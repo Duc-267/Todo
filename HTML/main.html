@@ -17,12 +17,14 @@
   </head>
   <body>
     <div class="container">
-        <div class="todo-container">
-            <div class="todo-container__header">
-            <div id="greeting">
-              <p id="">Hi <strong id="name">Duc</strong></p>
-            </div>
-            <button id="log-out" onclick="logout()">Log out</button>
+      <div class="todo-container">
+        <div class="todo__nav">
+          <div id="greeting">
+            <p>Hi <strong id="name"></strong></p>
+          </div>
+          <button class="btn2 logout__btn" id="log-out" onclick="logout()">Log out</button>
+        </div>
+        <div class="todo-container__header">
           <h2 class="title">Todo List</h2>
         </div>
         <div class="todo-container__new-todo">
@@ -40,6 +42,6 @@
     </div>
     <script src="../JS/constants.js"></script>
     <script src="../JS/logout.js"></script>
-    <script src="../JS/script.js"></script>
+    <script src="../JS/todo.js"></script>
   </body>
 </html>

@@ -9,10 +9,18 @@ function login() {
     if (checkBox.checked == true) {
       localStorage.setItem(KEY_LOGGING, "true");
       localStorage.setItem(
-        KEY_CURRENT,
+        KEY_SAVED_USER,
         JSON.stringify({ email: email, password: password })
       );
     }
+    localStorage.setItem(
+      KEY_CURRENT_USER,
+      JSON.stringify({
+        email: user.email,
+        password: user.password,
+        fullName: user.fullName,
+      })
+    );
     return true;
   }
   document.getElementById("login-validation").innerHTML =
@@ -21,7 +29,7 @@ function login() {
 }
 
 const autoFill = () => {
-  const currentUser = JSON.parse(localStorage.getItem(KEY_CURRENT)) || [];
+  const currentUser = JSON.parse(localStorage.getItem(KEY_SAVED_USER)) || [];
   console.log(currentUser);
   if (currentUser) {
     document.forms["login__form"]["email"].value = currentUser.email || "";
