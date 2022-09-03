@@ -2,9 +2,28 @@ const todoList = document.querySelector(".todo-container__list"),
   showHideIcon = document.querySelectorAll(".show-hide"),
   passwordFields = document.querySelectorAll(".password");
 
+showHideIcon.forEach((eyeIcon) => {
+    eyeIcon.addEventListener("click", () => {
+      passwordFields.forEach((pwField) => {
+        if (pwField.type === "password") {
+          pwField.type = "text";
+  
+          showHideIcon.forEach((icon) => {
+            icon.classList.replace("uil-eye-slash", "uil-eye");
+          });
+        } else {
+          pwField.type = "password";
+  
+          showHideIcon.forEach((icon) => {
+            icon.classList.replace("uil-eye", "uil-eye-slash");
+          });
+        }
+      });
+    });
+  });
+
 let todos = [{ id: 1, content: "Learn JavaScript" }];
 let idCounter = 2;
-
 const optionsToggle = () => {
   var toggleBtns = document.getElementsByClassName("options__toggleBtn");
   for (var i = 0; i < toggleBtns.length; i++) {
@@ -115,7 +134,7 @@ const editTodo = (todo) => {
       console.log(todo.content);
       item.innerHTML = `
             <input type=text value="${todo.content}" class="edit__content">
-            <button type="button" class="edit__save" onclick="saveTodo(${todo.id})">Save</button>`;
+            <button type="button" class="btn2 edit__save" onclick="saveTodo(${todo.id})">Save</button>`;
     }
   });
 };
@@ -131,128 +150,9 @@ const saveTodo = (id) => {
   }
 };
 
-// renderTodo()
-// optionsToggle()
+renderTodo()
+optionsToggle()
 
-// Sign-up validation
-function validateForm(account) {
-  let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  let emailValidationFlag = true;
-  let fullNameValidationFlag = true;
-  let passwordValidationFlag = true;
-  let confirmPasswordValidationFlag = true;
-  if (!account.email.match(mailFormat)) {
-    document.getElementById("email-validation").innerHTML =
-      "Incorrect email form";
-    emailValidationFlag = false;
-  } else {
-    document.getElementById("email-validation").innerHTML = "";
-    emailValidationFlag = true;
-  }
-  if (account.fullName.split(" ").length < 2) {
-    document.getElementById("fname-validation").innerHTML =
-      "Full name must contain at least 2 words";
-    fullNameValidationFlag = false;
-  } else {
-    document.getElementById("fname-validation").innerHTML = "";
-    fullNameValidationFlag = true;
-  }
-  if (
-    account.password.length < 8 ||
-    !containsSpecialChars(account.password) ||
-    !checkUppercasePassword(account.password)
-  ) {
-    document.getElementById("password-validation").innerHTML =
-      "Password must contain at least one uppercase character, one special character and has eight characters or longer.";
-    passwordValidationFlag = false;
-  } else {
-    document.getElementById("password-validation").innerHTML = "";
-    passwordValidationFlag = true;
-  }
-  if (account.confirmPassword !== account.password) {
-    document.getElementById("cpassword-validation").innerHTML =
-      "The password confirmation does not match.";
-    confirmPasswordValidationFlag = false;
-  } else {
-    document.getElementById("cpassword-validation").innerHTML = "";
-    confirmPasswordValidationFlag = true;
-  }
-  return (
-    emailValidationFlag &&
-    fullNameValidationFlag &&
-    passwordValidationFlag &&
-    confirmPasswordValidationFlag
-  );
-}
-
-function signUp() {
-  let email = document.forms["signup__form"]["email"].value;
-  let fullName = document.forms["signup__form"]["fname"].value;
-  let password = document.forms["signup__form"]["password"].value;
-  let confirmPassword =
-    document.forms["signup__form"]["confirm-password"].value;
-  let account = {
-    email,
-    fullName,
-    password,
-    confirmPassword,
-  };
-  const validate = validateForm(account);
-  if (validate) {
-    storeNewUser(account);
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function storeNewUser(account) {
-  const newUser = {
-    email: account.email,
-    password: account.password,
-    fullName: account.fullName,
-  };
-
-  let users = JSON.parse(localStorage.getItem("users")) || [];
-  users.push(newUser);
-  localStorage.setItem("users", JSON.stringify(users));
-}
-
-function containsSpecialChars(str) {
-  const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-  return specialChars.test(str);
-}
-function checkUppercasePassword(password) {
-  for (var i = 0; i < password.length; i++) {
-    if (
-      password.charAt(i) == password.charAt(i).toUpperCase() &&
-      password.charAt(i).match(/[a-z]/i)
-    ) {
-      return true;
-    }
-  }
-  return false;
-}
-
-showHideIcon.forEach((eyeIcon) => {
-  eyeIcon.addEventListener("click", () => {
-    passwordFields.forEach((pwField) => {
-      if (pwField.type === "password") {
-        pwField.type = "text";
-
-        showHideIcon.forEach((icon) => {
-          icon.classList.replace("uil-eye-slash", "uil-eye");
-        });
-      } else {
-        pwField.type = "password";
-
-        showHideIcon.forEach((icon) => {
-          icon.classList.replace("uil-eye", "uil-eye-slash");
-        });
-      }
-    });
-  });
-});
 // function random_code_generate(max, min) {
 //     const codeChars =
 //         "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^*_";
@@ -269,14 +169,3 @@ showHideIcon.forEach((eyeIcon) => {
 
 // console.log(random_code_generate(4, 7))
 
-function login() {
-  const email = document.forms["login__form"]["email"].value;
-  const password = document.forms["login__form"]["password"].value;
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-  const user = users.find((user) => user.email == email);
-  if (user && user.password == password) {
-    return true;
-  }
-  document.getElementById("login-validation").innerHTML = "Incorrect email or password"
-  return false;
-}
