@@ -1,0 +1,49 @@
+User
+
+{
+
+    **email**, 
+
+    fullName, 
+
+    password, 
+
+    projectId, 
+
+    isAdmin  
+
+}
+
+User-Project{
+
+    **email,**
+
+    projectId,
+
+    isAdmin ,
+
+}
+
+Project
+
+{
+
+    name,
+
+    id,
+
+    listMember: usersEmail[],
+
+}
+
+Task
+
+{
+
+    id,
+
+    projectId,
+
+    content,
+
+}
