@@ -1,4 +1,4 @@
-function validateForm(account) {
+const validateForm = function (account) {
   let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   let emailValidationFlag = true;
   let fullNameValidationFlag = true;
@@ -42,13 +42,12 @@ function validateForm(account) {
   }
   return (
     emailValidationFlag &&
-    fullNameValidationFlag &&
     passwordValidationFlag &&
     confirmPasswordValidationFlag
   );
 }
 
-function signUp() {
+const signUp = function () {
   let email = document.forms["signup__form"]["email"].value;
   let fullName = document.forms["signup__form"]["fname"].value;
   let password = document.forms["signup__form"]["password"].value;
@@ -69,8 +68,9 @@ function signUp() {
   }
 }
 
-function storeNewUser(account) {
+const storeNewUser = function (account) {
   const newUser = {
+    isAdmin: false,
     email: account.email,
     password: account.password,
     fullName: account.fullName,
@@ -81,7 +81,7 @@ function storeNewUser(account) {
   localStorage.setItem(KEY_USERS, JSON.stringify(users));
 }
 
-function containsSpecialChars(str) {
+const containsSpecialChars= function (str) {
   const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
   return specialChars.test(str);
 }

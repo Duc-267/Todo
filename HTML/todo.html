@@ -17,10 +17,18 @@
   </head>
   <body>
     <div class="container">
+      <div id="listuser-popup-container">
+          <div class="listuser-popup__header">
+              <h2 class="title">
+                  List User
+              </h2>
+          </div>
+      </div>
       <div class="todo-container">
         <div class="todo__nav">
           <div id="greeting">
             <p>Hi <strong id="name"></strong></p>
+            <p><strong id="admin"></strong></p>
           </div>
           <button class="btn2 logout__btn" id="log-out" onclick="logout()">
             Log out
@@ -41,6 +49,9 @@
         </div>
         <div class="todo-container__list"></div>
       </div>
+      <!-- <div class="popup">
+        <h1>this is popup</h1>
+      </div> -->
     </div>
     <script src="../JS/constants.js"></script>
     <script src="../JS/logout.js"></script>

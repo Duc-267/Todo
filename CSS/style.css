@@ -189,7 +189,7 @@ body {
   background: rgb(0 0 0 / 10%);
 }
 
-.options__dropdown :is(.edit, .delete):hover {
+.options__dropdown :is(.edit, .delete, .addMember):hover {
   background: rgb(0 0 0 / 6%);
 }
 
@@ -198,21 +198,20 @@ body {
   height: 0;
   opacity: 0;
   right: 50%;
-  width: 9rem;
+  width: 10rem;
   overflow: hidden;
   position: absolute;
   background: #fff;
   transition: all 0.4s;
   pointer-events: none;
   border-radius: 0.3rem;
-  box-shadow: 0 0 20px rgb(0 0 0 / 20%);
 }
 
 .todo-container__list .todo__item.active .todo__options .options__toggleBtn {
   background: rgb(0 0 0 / 10%);
 }
 
-.options__dropdown :is(.edit, .delete, .showMore) {
+.options__dropdown :is(.edit, .delete, .showMore, .addMember) {
   transition: all 0.2s;
   padding: 0.4rem 1rem;
   border-bottom: 1px solid rgb(0 0 0 / 8%);
@@ -376,3 +375,12 @@ a:hover {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+#listuser-popup-container {
+  display: none;
+}
+
+#admin {
+  color: darkgoldenrod;
+}
+

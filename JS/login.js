@@ -1,5 +1,4 @@
-function login() {
-  console.log("log");
+const  login= function() {
   const email = document.forms["login__form"]["email"].value;
   const password = document.forms["login__form"]["password"].value;
   const users = JSON.parse(localStorage.getItem(KEY_USERS)) || [];
@@ -16,6 +15,7 @@ function login() {
     localStorage.setItem(
       KEY_CURRENT_USER,
       JSON.stringify({
+        isAdmin: user.isAdmin,
         email: user.email,
         password: user.password,
         fullName: user.fullName,
@@ -28,16 +28,16 @@ function login() {
   return false;
 }
 
-const autoFill = () => {
+  const autoFill = () => {
   const currentUser = JSON.parse(localStorage.getItem(KEY_SAVED_USER)) || [];
   console.log(currentUser);
   if (currentUser) {
     document.forms["login__form"]["email"].value = currentUser.email || "";
     document.forms["login__form"]["password"].value =
-      currentUser.password || "";
+    currentUser.password || "";
   }
 };
-const autoRedirect = () => {
+const autoRedirect = function () {
   const key = localStorage.getItem(KEY_LOGGING);
   const isLogging = key === "true";
   console.log(
@@ -45,7 +45,7 @@ const autoRedirect = () => {
     isLogging
   );
   if (isLogging) {
-    location.pathname = "Todo/HTML/main.html";
+    location.pathname = "HTML/todo.html";
   }
 };
 autoFill();
