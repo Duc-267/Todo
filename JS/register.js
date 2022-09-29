@@ -7,7 +7,7 @@ const validateForm = function (account) {
   let confirmPasswordValidationFlag = true;
   let emailIsAvailable = true;
   let users = JSON.parse(localStorage.getItem(KEY_USERS)) || [];    
-  for (let i = 0; i < localStorage.length; i++){
+  for (let i = 0; i < users.length; i++){
     if(account.email == users[i].email)
     {
       emailIsAvailable = false
@@ -59,7 +59,8 @@ const validateForm = function (account) {
   return (
     emailValidationFlag &&
     passwordValidationFlag &&
-    confirmPasswordValidationFlag
+    confirmPasswordValidationFlag && 
+    emailIsAvailable
   );
 }
 
