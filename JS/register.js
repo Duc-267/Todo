@@ -1,14 +1,30 @@
 const validateForm = function (account) {
+
   let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   let emailValidationFlag = true;
   let fullNameValidationFlag = true;
   let passwordValidationFlag = true;
   let confirmPasswordValidationFlag = true;
+  let emailIsAvailable = true;
+  let users = JSON.parse(localStorage.getItem(KEY_USERS)) || [];    
+  for (let i = 0; i < localStorage.length; i++){
+    if(account.email == users[i].email)
+    {
+      emailIsAvailable = false
+    }
+}
   if (!account.email.match(mailFormat)) {
     document.getElementById("email-validation").innerHTML =
       "Incorrect email form";
     emailValidationFlag = false;
-  } else {
+  } 
+  else if (!emailIsAvailable)
+  {
+    document.getElementById("email-validation").innerHTML =
+      "This email already have an account!";
+    emailValidationFlag = false;
+  }
+  else {
     document.getElementById("email-validation").innerHTML = "";
     emailValidationFlag = true;
   }
