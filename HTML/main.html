@@ -3,7 +3,7 @@
     <head>
         <meta charset = "UTF-8" />
         <meta http-equiv = "X-UA-Compatible" content = "IE-edge" />
-        <meta name ="viewport" content="width-device-width, initial-scale = 1.0"  />
+        <meta name ="viewport" content="width=device-width, initial-scale = 1.0"  />
         <title> Main</title>
         <link rel="stylesheet" href ="../CSS/style.css"/>
         <link rel = "stylesheet" href ="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
@@ -32,11 +32,27 @@
             </div>
 
         <div class="todo-container__header">
-                <h2 class="title">Task List</h2>
+                <h2 class="title">Project</h2>
         </div>  
 
+        <div class="todo-container__new-todo">
+            <input
+              type="text"
+              class="new-todo__content"
+              placeholder="Add your new project"
+            />
+            <button class="btn new-todo__button">
+              <i class="fa fa-plus" onclick="addProject()"></i>
+            </button>
+          </div>
+          <div class="todo-container__list"></div>
         </div>
 
+        </div>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/constants.js"></script>
+    <script src="../JS/logout.js"></script>
+    <script src="../JS/todo.js"></script>
         
 
     </body>

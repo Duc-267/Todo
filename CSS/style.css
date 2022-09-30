@@ -107,6 +107,7 @@ body {
   border-width: 1px;
   border-style: solid;
   border-color: rgb(76, 74, 74);
+  
 }
 
 .todo__nav {
@@ -115,7 +116,7 @@ body {
   display: flex;
   font-size: 20px;
   justify-content: space-between;
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 .form__button {
