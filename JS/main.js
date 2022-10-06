@@ -6,12 +6,12 @@ let idCounter = Math.floor(Math.random() * 100000);
 const renderProject = function () {
     let ListItem = "";
     if (projects) {
-        projects.forEach((todo, index) => {
+        projects.forEach((project, index) => {
         ListItem += `
-        <div class="project__item" data-id="${todo.id}">
+        <div class="project__item" data-id="${project.id}">
           <div class="item__header">
               <span class="item__id">${index + 1}</span>
-                <p class="item__title">${todo.content}</p>
+                <p class="item__title">${project.content}</p>
           </div>
         </div>`;
       });
