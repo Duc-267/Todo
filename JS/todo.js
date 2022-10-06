@@ -52,7 +52,7 @@ const renderTodo = function () {
             <div class="options__dropdown">
               <div class="edit" onclick="editTodo('${encodeURIComponent(JSON.stringify(todo))}')"  >
               <i class="fa-solid fa-pencil"></i> <span>Edit</span>
-              </div>
+              </div>  
               <div class="addMember" onclick="showMember()"  >
                 <i class="fa-solid fa-pencil"></i> <span>Add Member</span> 
               </div>
