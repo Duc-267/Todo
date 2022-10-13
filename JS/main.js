@@ -3,11 +3,16 @@ const projects = JSON.parse(localStorage.getItem(KEY_PROJECT)) || [];
 const currentUser = JSON.parse(localStorage.getItem(KEY_CURRENT_USER));
 const userProjects = JSON.parse(localStorage.getItem(KEY_USER_PROJECT)) || [];
 const myProjects = userProjects.filter(item => item.email == currentUser.email);
-console.log("🚀 ~ file: main.js ~ line 6 ~ myProjects", myProjects)
+const items = document.getElementsByClassName('project__item')
+
 let idCounter = Math.floor(Math.random() * 100000);
 
 document.getElementById("name").innerHTML = currentUser.fullName;
 document.getElementById("email").innerHTML = currentUser.email;
+
+const navigateTodo = function (projectId) {
+  console.log(projectId);
+}
 
 const findContent = function (projectId) {
   for (project of projects) {
@@ -57,3 +62,10 @@ const addProject = function(){
 }
 
 renderProject();
+
+for (let i = 0; i < items.length; i++) {
+  items[i].addEventListener('click', () => {
+    var url = new URL("http:/127.0.0.1:5500//HTML/todo.html?projectId=");
+    window.location = url + items[i].dataset.id;
+  })
+}
