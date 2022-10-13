@@ -7,7 +7,6 @@ document.getElementById("name").innerHTML = currentUser.fullName;
 document.getElementById("admin").innerHTML = currentUser.isAdmin
   ? "Admin"
   : "";
-console.log("🚀 ~ file: todo.js ~ line 7 ~ isAdmin", currentUser);
 const optionsToggle = () => {
   var toggleButtons = document.getElementsByClassName("options__toggleBtn");
   for (var i = 0; i < toggleButtons.length; i++) {
@@ -83,11 +82,9 @@ const addTodo = function () {
 };
 
 const deleteTodo = function (id) {
-  console.log(id);
   todos = todos.filter((todo) => todo.id != id);
   localStorage.setItem(KEY_TODO, JSON.stringify(todos));
   location.reload();
-  console.log(todos);
 
   renderTodo();
   optionsToggle();
@@ -98,7 +95,6 @@ const editTodo = function (todo)  {
   let items = document.querySelectorAll(".todo__item");
   items.forEach((item) => {
     if (item.dataset.id == todo.id) {
-      console.log(todo.content);
       item.innerHTML = `
               <input type=text value="${todo.content}" class="edit__content">
               <button type="button" class="btn2 edit__save" onclick="saveTodo(${todo.id})">Save</button>`;
@@ -115,7 +111,6 @@ const saveTodo = function (id) {
   if (content != "") {
     const index = todos.findIndex((todo) => todo.id == id);
     todos[index].content = content;
-    console.log(todos);
     localStorage.setItem(KEY_TODO, JSON.stringify(todos));
     location.reload();
     renderTodo();
@@ -125,12 +120,7 @@ const saveTodo = function (id) {
 
 const autoRedirect = function () {
   const key = localStorage.getItem(KEY_LOGGING);
-  console.log("🚀 ~ file: todo.js ~ line 140 ~ autoRedirect ~ key", key);
   const isLogging = key === "false";
-  console.log(
-    "🚀 ~ file: login.js ~ line 21 ~ autoRedirect ~ isLogging",
-    isLogging
-  );
   if (isLogging) {
     location.pathname = "Todo/index.html";
   }
