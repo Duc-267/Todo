@@ -5,11 +5,6 @@ let idCounter = Math.floor(Math.random() * 100000);
 // document.getElementById("id").innerHTML = currentUser.id
 
 
-const currentUser = {
-  name: 'Huynh Anh Duy',
-  email: '1@gmail.com'
-} 
-
 localStorage.setItem(KEY_CURRENT_USER, JSON.stringify(currentUser));
 const currentUserInfo = JSON.parse(localStorage.getItem(KEY_CURRENT_USER));
 document.getElementById("name").innerHTML = currentUserInfo.name
