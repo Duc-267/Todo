@@ -41,6 +41,7 @@ body {
 }
 
 .todo-container,
+.project-container,
 .registration-container,
 .login-container {
   position: relative;
@@ -49,7 +50,7 @@ body {
   border-radius: 10px;
   width: clamp(18rem, 50vw, 30rem);
 }
-.todo-container {
+.project-container,.project-container {
   height: 500px;
   flex-direction: r;
 
@@ -62,24 +63,28 @@ body {
   font-size: 35px;
 }
 
-.todo-container .title {
+.todo-container .title,
+.project-container .title {
   padding-top: 0px;
 
 }
 
 .todo-container__new-todo,
-.todo-container__list {
+.project-container__new-project,
+.todo-container__list,
+.project-container__list {
   padding-top: 20px;
   display: flex;
   align-items: center;
 }
 
-.todo-container__new-todo {
+.todo-container__new-todo,.project-container__new-project {
   padding-left: 20px;
   padding-right: 20px;
 }
 
 .new-todo__content,
+.new-project__content,
 .edit__content {
   flex: 1;
   height: 36px;
@@ -92,7 +97,7 @@ body {
   box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
 }
 
-.new-todo__content::placeholder {
+.new-todo__content::placeholder, .new-project__content::placeholder {
   font-size: 16px;
   color: rgb(187, 185, 182);
 }
@@ -124,7 +129,7 @@ body {
   border-radius: 22px;
 }
 
-.new-todo__button {
+.new-todo__button, .new-project__button {
   width: 44px;
   border-radius: 22px;
   margin-left: 5px;
@@ -134,7 +139,7 @@ body {
   background: rgb(128 36 210);
 }
 
-.todo-container__list {
+.todo-container__list, .project-container__list{
   height: 375px;
   width: 100%;
   overflow-y: scroll;
@@ -142,7 +147,9 @@ body {
   flex-direction: column;
 }
 
-.todo__item {
+.todo__item,
+.project__item
+ {
   height: 40px;
   padding-left: 20px;
   padding-right: 20px;
@@ -155,7 +162,10 @@ body {
 }
 
 .todo__item:hover,
-.todo__item.active {
+.todo__item.active,
+.project__item:hover,
+.project__item.active
+ {
   background: rgb(0 0 0 / 4%);
 }
 
@@ -207,7 +217,7 @@ body {
   border-radius: 0.3rem;
 }
 
-.todo-container__list .todo__item.active .todo__options .options__toggleBtn {
+.todo-container__list .project-container__list .todo__item.active .todo__options .options__toggleBtn {
   background: rgb(0 0 0 / 10%);
 }
 
@@ -217,7 +227,7 @@ body {
   border-bottom: 1px solid rgb(0 0 0 / 8%);
 }
 
-.todo-container__list .todo__item.active .todo__options .options__dropdown {
+.todo-container__list .project-container__list .todo__item.active .todo__options .options__dropdown {
   opacity: 1;
   height: 4.6rem;
   overflow: visible;
@@ -383,4 +393,3 @@ a:hover {
 #admin {
   color: darkgoldenrod;
 }
-
