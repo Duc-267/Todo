@@ -45,7 +45,7 @@ const autoRedirect = function () {
     isLogging
   );
   if (isLogging) {
-    location.pathname = "HTML/todo.html";
+    location.pathname = "C:/Users/arcan/OneDrive/Desktop/UDT/Todo/Todo/HTML/todo.html";
   }
 };
 autoFill();
